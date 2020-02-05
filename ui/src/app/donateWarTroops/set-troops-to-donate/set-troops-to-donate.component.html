@@ -25,6 +25,7 @@
                 <td>Housing Space</td>
                 <td>Fillable</td>
                 <td>Per Filling</td>
+                <td>Filled</td>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +42,9 @@
                 <td>
                     {{t.perFilling}}
                 </td>
+                <td>
+                    {{t.filled}}
+                </td>
             </tr>
         </tbody>
     </table>
@@ -54,38 +58,22 @@
     Clan Castle List:
 </div>
 <div class="row text-center justify-content-center">
-    <div *ngFor="let cL of ccList; let i = index;" class="border p-2 col-md-3">
-        <span class="border bg-dark text-light">{{i+1}}</span>
-        {{cL}}
+    <div *ngFor="let cL of ccList; let i = index;" class="border p-2 col-md-12">
+        <div class="border bg-dark text-light">{{i+1}}</div>
+        <div>CC Capacity: {{cL.capacity}}</div>
+        <div>
+            <span *ngFor="let troop of cL.troops | keyvalue">
+                <span *ngFor="let t of troops">
+                    <img *ngIf="t.troop == troop.key" [src]="t.imageLink" alt="" width="50px">
+                </span>
+                {{troop.key}}*
+                <span *ngIf="troop.key=='Witch'">{{troop.value.count*2}}</span> 
+                <span *ngIf="troop.key!='Witch'">{{troop.value.count}}</span>&nbsp;
+                
+            </span>
+        </div>
+        <div>Available Housing Space: {{cL.unfilled}}</div>
         <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;
         <i class="fa fa-trash-o" aria-hidden="true"></i>
     </div>
 </div>
-
-
-<table class="table table-bordered text-center mt-5">
-    <thead class="bg-dark text-light">
-        <tr>
-            <td>Clan Castle Capacity</td>
-            <td>Count</td>
-            <td>Troops</td>
-            <td>Filled</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cc of clanCastle">
-            <td>
-                {{cc.capacity}}
-            </td>
-            <td>
-                {{cc.count}}
-            </td>
-            <td *ngFor='let troop of cc.troops'>
-                <div class="btn btn-dark">{{troop}}</div>
-            </td>
-            <td>
-                {{cc.filled}}
-            </td>
-        </tr>
-    </tbody>
-</table>

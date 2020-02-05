@@ -1,0 +1,91 @@
+<div class="input-group mt-2">
+    <div class="input-group-prepend">
+        <div class="input-group-text">
+            Total Housing Sapce
+        </div>
+    </div>
+    <input type="text" placeholder="nothing yet" class="form-control" [ngModel]="totalHousingSpaceAvailable"
+        [readonly]=true>
+</div>
+<button class="btn btn-info mt-2" (click)="fillables()">Click to view fillabel troops</button>
+
+<div class="container" [hidden]="hideFillable">
+    <h4 class="mt-3">Select Troops</h4>
+    <div class="row mt-1">
+        <div class="col-md-3 form-check" *ngFor="let t of troops">
+            <input type="checkbox" class="form-check-input" id="materialChecked" checked>
+            <label class="form-check-label" for="materialChecked">{{t.troop}}</label>
+        </div>
+    </div>
+
+    <table class="table table-bordered text-center mt-5">
+        <thead class="bg-dark text-light">
+            <tr>
+                <td>Troop</td>
+                <td>Housing Space</td>
+                <td>Fillable</td>
+                <td>Per Filling</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of troops">
+                <td>
+                    {{t.troop}}
+                </td>
+                <td>
+                    {{t.housing_space}}
+                </td>
+                <td>
+                    {{t.fillable}}
+                </td>
+                <td>
+                    {{t.perFilling}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-info" (click)="getCombinations()">Click to get combinations</button>
+</div>
+
+
+<br>
+<div class="h4 mt-5">
+    Clan Castle List:
+</div>
+<div class="row text-center justify-content-center">
+    <div *ngFor="let cL of ccList; let i = index;" class="border p-2 col-md-3">
+        <span class="border bg-dark text-light">{{i+1}}</span>
+        {{cL}}
+        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+    </div>
+</div>
+
+
+<table class="table table-bordered text-center mt-5">
+    <thead class="bg-dark text-light">
+        <tr>
+            <td>Clan Castle Capacity</td>
+            <td>Count</td>
+            <td>Troops</td>
+            <td>Filled</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cc of clanCastle">
+            <td>
+                {{cc.capacity}}
+            </td>
+            <td>
+                {{cc.count}}
+            </td>
+            <td *ngFor='let troop of cc.troops'>
+                <div class="btn btn-dark">{{troop}}</div>
+            </td>
+            <td>
+                {{cc.filled}}
+            </td>
+        </tr>
+    </tbody>
+</table>

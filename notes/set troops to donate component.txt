@@ -1,0 +1,13 @@
+    /* following is the code to sort the fillable troops into cc basis on capacity and housing_space */
+/*     this.clanCastleCapacity.forEach(
+      cc => {
+        this.troops.forEach(
+          troop => {
+            if (troop['housing_space'] < cc['capacity']) {
+              cc['troops'].push(troop['troop']);
+            }
+          }
+        )
+      }
+    )
+    console.log(this.clanCastleCapacity); */

@@ -1,0 +1,25 @@
+<table class="table table-bordered text-center mt-5">
+    <thead class="bg-dark text-light">
+        <tr>
+            <td>Clan Castle Capacity</td>
+            <td>Actions</td>
+            <td>Count</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cc of clanCastle">
+            <td class="pt-3">
+                {{cc.capacity}}
+            </td>
+            <td>
+                <div class="btn-group">
+                    <input type="button" value="Add" class="btn btn-success" (click)="cc.count=cc.count+1; emitClanCastle(cc.capacity)">
+                    <input type="button" value="Remove" class="btn btn-danger" (click)="cc.count=cc.count-1; emitClanCastle(cc.capacity)">
+                </div>
+            </td>
+            <td class="pt-3">
+                {{cc.count}}
+            </td>
+        </tr>
+    </tbody>
+</table>

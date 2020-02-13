@@ -6,6 +6,7 @@ import { SetClanCastleCapacityComponent } from './set-clan-castle-capacity/set-c
 import { SetTroopsToDonateComponent } from './set-troops-to-donate/set-troops-to-donate.component';
 import { SetFillerTroopsComponent } from './set-filler-troops/set-filler-troops.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     DonateWarTroopsComponent,
@@ -14,9 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SetFillerTroopsComponent
   ],
   imports: [
-    CommonModule, 
-    FormsModule, 
+    CommonModule,
+    FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     DonateWarTroopsRoutingModule
   ]
 })

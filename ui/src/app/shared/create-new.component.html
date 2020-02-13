@@ -1,0 +1,61 @@
+<div class="dropdown">
+    <div class="dropdown-toggle" data-toggle="dropdown">
+        Players
+    </div>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="javascript:void(0);" routerLink="/players">Dashboard</a>
+        <a class="dropdown-item" href="javascript:void(0);" (click)="open(content)">Add</a>
+        <a class="dropdown-item" href="javascript:void(0);">Modify</a>
+        <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4>Create New Warrior</h4>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="playerForm">
+            <div class="input-group">
+                <div class="input-group-prepend w-25">
+                    <div class="input-group-text w-100">
+                        Player Tag
+                    </div>
+                </div>
+                <input type="text" placeholder="#VJG0CJUQ" class="form-control" formControlName="Player Tag">
+            </div>
+            <div class="alert alert-danger" *ngIf="playerForm.controls['Player Tag'].hasError('pattern')">
+                e.g. = "#VJG0CJUQ" character set = "0289CGJLPQRUVY"
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend w-25">
+                    <div class="input-group-text w-100">
+                        Player Name
+                    </div>
+                </div>
+                <input type="text" placeholder="The Lion" class="form-control" formControlName="Player Name">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend w-25">
+                    <div class="input-group-text w-100">
+                        TH Level
+                    </div>
+                </div>
+                <input type="number" placeholder="11" class="form-control" formControlName="Town Hall Level">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend w-25">
+                    <div class="input-group-text w-100">
+                        CC Capacity
+                    </div>
+                </div>
+                <input type="number" placeholder="35" class="form-control" formControlName="Clan Castle Capacity">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <input type="button" value="Submit" class="btn btn-success" (click)="modal.close()"
+            [disabled]="!playerForm.valid">
+        <input type="button" value="Cancel" class="btn btn-danger" (click)="modal.dismiss()">
+    </div>
+</ng-template>

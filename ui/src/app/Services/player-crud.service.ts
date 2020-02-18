@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayerCRUDService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   createPlayer(body) {
-    console.log(body);
-    this.http.post("https://4nrpo9ezi8.execute-api.us-east-2.amazonaws.com/dev/players", body)
-      .subscribe(
-        response => console.log(response)
-      )
+    let httpHeaders = new HttpHeaders().set("CONTENT-TYPE", "application/json");
+    return this.httpClient.post("https://eqc7ppu9m2.execute-api.us-west-2.amazonaws.com/dev/players/create", body, { headers: httpHeaders });
+  }
+  
+  getAllPlayers(){
+    return this.httpClient.get("https://eqc7ppu9m2.execute-api.us-west-2.amazonaws.com/dev/players/readAll");
   }
 }

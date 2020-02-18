@@ -18,10 +18,10 @@ export class CreateNewComponent implements OnInit {
 
   ngOnInit() {
     this.playerForm = this.formBuilder.group({
-      "Player Tag": [null, [Validators.required, Validators.pattern('#[0289CGJLPQRUVY]{8}[0289CGJLPQRUVY]*')]],
-      "Player Name": [null, [Validators.required]],
-      "Town Hall Level": [null, [Validators.required]],
-      "Clan Castle Capacity": [null, [Validators.required]]
+      "playertag": [null, [Validators.required, Validators.pattern('#[0289CGJLPQRUVY]{8}[0289CGJLPQRUVY]*')]],
+      "player_basename": [null, [Validators.required]],
+      "townhall_level": [null, [Validators.required]],
+      "clancastle_capacity": [null, [Validators.required]]
     })
   }
 
@@ -31,7 +31,7 @@ export class CreateNewComponent implements OnInit {
     modalRef.result.then(
       result => {
         this.playerCRUDService.createPlayer(this.playerForm.value);
-        this.closeResult = `Added New Player ${this.playerForm.get('Player Name').value} with Tag ${this.playerForm.get("Player Tag").value}`;
+        this.closeResult = `Added New Player ${this.playerForm.get('player_basename').value} with Tag ${this.playerForm.get("playertag").value}`;
       },
       reject => {
         this.closeResult = "Player Could Not be Added";

@@ -22,9 +22,9 @@
                         Player Tag
                     </div>
                 </div>
-                <input type="text" placeholder="#VJG0CJUQ" class="form-control" formControlName="Player Tag">
+                <input type="text" placeholder="#VJG0CJUQ" class="form-control" formControlName="playertag">
             </div>
-            <div class="alert alert-danger" *ngIf="playerForm.controls['Player Tag'].hasError('pattern')">
+            <div class="alert alert-danger" *ngIf="playerForm.controls['playertag'].hasError('pattern')">
                 e.g. = "#VJG0CJUQ" character set = "0289CGJLPQRUVY"
             </div>
             <div class="input-group">
@@ -33,7 +33,7 @@
                         Player Name
                     </div>
                 </div>
-                <input type="text" placeholder="The Lion" class="form-control" formControlName="Player Name">
+                <input type="text" placeholder="The Lion" class="form-control" formControlName="player_basename">
             </div>
             <div class="input-group">
                 <div class="input-group-prepend w-25">
@@ -41,7 +41,7 @@
                         TH Level
                     </div>
                 </div>
-                <input type="number" placeholder="11" class="form-control" formControlName="Town Hall Level">
+                <input type="number" placeholder="11" class="form-control" formControlName="townhall_level">
             </div>
             <div class="input-group">
                 <div class="input-group-prepend w-25">
@@ -49,7 +49,7 @@
                         CC Capacity
                     </div>
                 </div>
-                <input type="number" placeholder="35" class="form-control" formControlName="Clan Castle Capacity">
+                <input type="number" placeholder="35" class="form-control" formControlName="clancastle_capacity">
             </div>
         </form>
     </div>

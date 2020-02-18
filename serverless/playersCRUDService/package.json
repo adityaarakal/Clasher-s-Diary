@@ -1,0 +1,26 @@
+{
+  "name": "playerscrudservice",
+  "version": "1.0.0",
+  "description": "clashers diary players crud service",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityaarakal/Clasher-s-Diary.git"
+  },
+  "keywords": [
+    "clashofclans"
+  ],
+  "author": "aditya arakal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adityaarakal/Clasher-s-Diary/issues"
+  },
+  "homepage": "https://github.com/adityaarakal/Clasher-s-Diary#readme",
+  "dependencies": {
+    "aws-sdk": "^2.618.0"
+  },
+  "resolveJsonModuel":true
+}

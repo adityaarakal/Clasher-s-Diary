@@ -8,12 +8,18 @@ export class PlayerCRUDService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createPlayer(body) {
+  /* aws web server hit */
+/*   createPlayer(body) {
     let httpHeaders = new HttpHeaders().set("CONTENT-TYPE", "application/json");
     return this.httpClient.post("https://eqc7ppu9m2.execute-api.us-west-2.amazonaws.com/dev/players/create", body, { headers: httpHeaders });
-  }
+  } */
   
-  getAllPlayers(){
+  /* aws web server hit */
+/*   getAllPlayers(){
     return this.httpClient.get("https://eqc7ppu9m2.execute-api.us-west-2.amazonaws.com/dev/players/readAll");
+  } */
+
+  createPlayer(body){
+    
   }
 }
